@@ -3,13 +3,10 @@
 A minimal Flask app that generates multiple‑choice questions (MCQs) from an uploaded document. 
 It uses **BERT** for extractive summarization, **PKE MultipartiteRank** for keyphrases, and **NLTK WordNet** for distractors, with simple fallbacks where needed.
 
-> **Screenshots:** _Attach your UI and results screenshots here._
-
 ---
-
 ## Features
 - Upload `.txt`, `.pdf`, or `.docx`
-- (Optional) **Use BERT** to summarize before question generation
+ **Uses BERT** to summarize before question generation
 - **PKE** keyphrase extraction (MultipartiteRank), with heuristic fallback
 - **WordNet** distractors, with fallback to other keyphrases/words
 - Simple, assignment‑friendly UI
