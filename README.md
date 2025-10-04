@@ -1,6 +1,6 @@
 # MCQ Generator (BERT + PKE + WordNet)
 
-A minimal Flask app that generates multiple‑choice questions (MCQs) from an uploaded document. 
+This is one of my undergraduate projects back in year 2020. This project statement seems pretty simple now, but still including it as it was one of the projects I was proud of back then and  that helped professors in their professioanal life. During COVID times, education had transformed to online platform from offline. So our professors found it time-consuming to generate weekly based quizzes manually. Then I came up with this solution, developed it and handed over the application to professors who found it reall really helpful (There was no chatGPT back then to help them out, lol).  It's a Flask app that generates multiple‑choice questions (MCQs) from an uploaded document. Text, doc, pdf files are supported. The number of questions to be generated is custom choice of the user. The generated MCQs with answers can be downloaded as CSV file. 
 It uses **BERT** for extractive summarization, **PKE MultipartiteRank** for keyphrases, and **NLTK WordNet** for distractors, with simple fallbacks where needed.
 
 ---
@@ -9,11 +9,11 @@ It uses **BERT** for extractive summarization, **PKE MultipartiteRank** for keyp
  **Uses BERT** to summarize before question generation
 - **PKE** keyphrase extraction (MultipartiteRank), with heuristic fallback
 - **WordNet** distractors, with fallback to other keyphrases/words
-- Simple, assignment‑friendly UI
+  
 
 ---
 
-## Quick Start
+
 
 > **Python 3.11 is recommended** (Torch & PKE install cleanly). Python 3.13 may fail to build PKE.
 
@@ -47,12 +47,12 @@ python app.py
 # Open http://127.0.0.1:5000
 ```
 
-### Having trouble with PKE on Python 3.13?
+### If having trouble with PKE on Python 3.13
 Use Python **3.11**. (PKE and scikit‑learn wheels are not always published for 3.13 yet.)
 
 ---
 
-## How it works (brief)
+## How it works 
 1. **Extract text** from the uploaded file (pdfplumber/docx2txt/plain text).
 2. **Summarize** the text (optional) using a **pre‑trained BERT** summarizer (no training here).
 3. **Extract keyphrases** via **PKE MultipartiteRank** (fallback to a simple heuristic).
@@ -61,47 +61,8 @@ Use Python **3.11**. (PKE and scikit‑learn wheels are not always published for
 
 ---
 
-## .gitignore (recommended)
-Create a `.gitignore` with at least:
-```
-.venv/
-__pycache__/
-uploads/
-*.pyc
-*.DS_Store
-```
-
----
-
-## Deploy / Hosting
-- You can host the **code** on GitHub. 
-- **GitHub Pages** is static-only and will not run Flask. Use a backend host (Render, Railway, Fly.io, Cloud Run, etc.) for live deployments.
-
----
-
-## Upload to GitHub (new repo)
-
-1. Create an empty repository on GitHub (no README/license).
-2. In your project folder:
-```bash
-git init
-git add .
-git commit -m "Initial commit: MCQ generator (BERT + PKE + WordNet)"
-git branch -M main
-git remote add origin https://github.com/<YOUR-USERNAME>/<REPO-NAME>.git
-git push -u origin main
-```
-
-> To push updates later:
-```bash
-git add .
-git commit -m "Update"
-git push
-```
-
----
 
 ## Notes
-- First run may download model weights; subsequent runs are faster.
+- First run may download model weights, subsequent runs are faster.
 - If Torch/PKE install fails, verify Python 3.11 and use the official Torch selector for your OS/CPU.
 - For deterministic results during grading, set a seed in the pipeline (e.g., `random.seed(42)`).
