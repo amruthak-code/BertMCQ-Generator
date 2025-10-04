@@ -14,7 +14,7 @@ It uses **BERT** for extractive summarization, **PKE MultipartiteRank** for keyp
 ---
 
 Find the demo here - > [▶ Watch the demo](https://github.com/amruthak-code/BertMCQ-Generator/releases/download/v1/Screen.Recording.2025-10-04.at.1.16.02.AM.mov)
-
+You can also find it in the releases (v1) . 
 > **Python 3.11 is recommended** (Torch & PKE install cleanly). Python 3.13 may fail to build PKE.
 
 ```bash
